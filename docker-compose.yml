@@ -1,0 +1,42 @@
+version: "3.3"  # optional since v1.27.0
+services:
+  frontend:
+    container_name: frontend
+    build: frontend
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./frontend/src:/opt/app/src
+  
+  postgres:
+    container_name: postgres
+    build: postgres
+    networks:
+      - backend_nw
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-secret}
+      POSTGRES_DB: users_db
+    ports:
+    - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+  backend:
+    container_name: backend
+    build: backend
+    networks:
+      - backend_nw
+    environment:
+      PG_HOST: ${PG_HOST:-postgres}
+    ports:
+      - "127.0.0.1:1337:1337"
+    volumes:
+      - ./backend/src:/opt/app/src
+    
+volumes:
+  postgres_data: {}
+
+networks:
+  backend_nw:
+    driver: bridge

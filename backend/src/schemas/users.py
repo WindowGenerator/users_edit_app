@@ -1,5 +1,5 @@
-from typing import Optional, List
 from enum import Enum
+from typing import Optional
 
 from pydantic import BaseModel
 
@@ -13,6 +13,7 @@ class User(BaseModel):
     username: str
     email: str
     bio: str = ""
+    permission: str
 
 
 class UserInLogin(BaseModel):
@@ -38,5 +39,7 @@ class UserWithToken(BaseModel):
     access_token: str
 
 
-class UserInDB(User):
+class UserFromDB(User):
+    id: int
     hashed_password: str
+    permission: Permissions

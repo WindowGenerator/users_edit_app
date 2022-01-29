@@ -1,11 +1,10 @@
-import uvicorn
-from fastapi import FastAPI
-from starlette.middleware.cors import CORSMiddleware
-
 from typing import Callable
+
+from fastapi import FastAPI
 from src.api.routes.handlers import router as api_router
-from src.settings import get_app_settings, AppSettings
-from src.db.events import connect_to_db, close_db_connection
+from src.db.events import close_db_connection, connect_to_db
+from src.settings import AppSettings, get_app_settings
+from starlette.middleware.cors import CORSMiddleware
 
 
 def _create_start_app_handler(
