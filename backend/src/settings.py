@@ -1,14 +1,10 @@
-
 import logging
-import sys
-from typing import Any, Dict, List, Tuple
 import secrets
-from pydantic import SecretStr, BaseSettings, Field
-
-
+import sys
 from functools import lru_cache
-from typing import Dict, Type
-import logging
+from typing import Any, Dict, List, Tuple, Type
+
+from pydantic import BaseSettings, Field, SecretStr
 
 logger = logging.getLogger(__name__)
 
@@ -49,7 +45,7 @@ class PostgresSettings(BaseSettings):
     max_connection_count: int = 10
 
 
-# Наследование конечно зло, но так как это тестовое,    
+# Наследование конечно зло, но так как это тестовое,
 # то можно им обойтись в угоду понятности конфигов
 class AppSettings(BaseFastApiSettings, PostgresSettings):
     api_prefix: str = "/api"

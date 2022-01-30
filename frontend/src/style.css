@@ -1,0 +1,165 @@
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background-color: rgb(87,189,130);
+    transition: background 0.5s ease;
+}
+
+.users-page-wrapper {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.form-wrapper {
+    width: 375px;
+    margin: 0 auto;
+}
+
+.field-group {
+    border: 0;
+    padding: 0.35em 0 0.625em 0;
+    text-align: left;
+    position: relative;
+}
+
+.label {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    padding: 0.20em 0 0.625em 0;
+}
+
+.bg-white {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1em;
+    text-align: center;
+}
+
+
+.text-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.btn-base {
+    background-color: #2c9267;
+    color: #fff;
+    padding: 0.7em;
+    border-radius: 5px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+
+.btn-submit {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.btn-logout {
+    position: relative;
+    left: 45%;
+    box-sizing: 50px;
+}
+
+.btn-create {
+    position: relative;
+    right: 45%;
+    box-sizing: 50px;
+}
+
+.input {
+    padding: 0.5em 0 0.5em 1em;
+    width: 100%;
+    border: 1px solid #e5e7ec;
+    border-radius: 5px;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+.users-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-row {
+    display: flex;
+    background-color: rgb(41, 233, 185);
+    border-radius: 10px;
+    padding: 1em;
+    margin-bottom: 10px;
+}
+
+.user-label {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    padding: 0.20em 0 0.625em 0;
+}
+
+.btn-container {
+    flex: 1;
+    padding: 0.20em 0 0.625em 0;
+}
+
+.btn-from-container {
+    position: relative;
+    box-sizing: 50px;
+}
+
+
+/* МОДАЛОЧКИ */
+
+.modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.open {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+.modal-bg {
+    position: absolute;
+    background-color: rgba(0,0,0,.5);
+    width: 100%;
+    height: 100%;
+}
+
+.modal-container {
+    border-radius: 10px;
+    background: #fff;
+    position: relative;
+    padding: 30px;
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    outline: none;
+    appearance: none;
+    color: red;
+    background: none;
+    border: 0px;
+    font-weight: bold;
+    cursor: pointer;
+  }
